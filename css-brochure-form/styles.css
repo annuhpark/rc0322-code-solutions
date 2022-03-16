@@ -1,0 +1,56 @@
+form {
+  width: 50%;
+  margin: auto;
+}
+
+h4 {
+  font-family: "Brandon Grotesque", sans-serif;
+  text-align: center;
+  letter-spacing: 1.4px;
+  color: #ec5d57;
+  margin: 12px;
+}
+
+.label {
+  font-family: "Brandon Grotesque", sans-serif;
+  font-size: 68%;
+  letter-spacing: 0.4px;
+  font-weight: normal;
+  padding: 12px;
+}
+
+.option {
+  width: 100%;
+  font-family: AtlasGrotesk, sans-serif;
+  padding: 9px 16px 9px 10px;
+  margin: 2px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.quantity-drop-down {
+  width: 100%;
+  font-family: AtlasGrotesk, sans-serif;
+  padding: 9px 20px 9px 3px;
+  margin: 2px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 11px;
+  background-color: #f3f3f3;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.button {
+  background-color: #ec5d57;
+  color: white;
+  border: none;
+  text-align: center;
+  padding: 6px 20px;
+  font-family: "Brandon Grotesque", sans-serif;
+  border-radius: 26px;
+  margin-top: 6px;
+  font-weight: bold;
+}
