@@ -1,0 +1,22 @@
+button {
+  padding: 6px 12px;
+}
+
+button:hover {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+.headings {
+  background-color: black;
+  color: white;
+}
+
+.student:nth-child(odd) {
+  background-color: #d2d2d2;
+}
+
+.student:nth-child(even) {
+  background-color: white;
+}
