@@ -1,0 +1,26 @@
+.container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: sans-serif;
+}
+
+.row {
+  display: flex;
+}
+
+.image {
+  width: 100%;
+}
+
+.column-one-third {
+  width: 33%;
+}
+
+.column-one-fourth {
+  width: 25%;
+}
+
+.column-two-thirds {
+  width: 66%;
+}
