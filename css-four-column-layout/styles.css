@@ -1,0 +1,47 @@
+head,
+body {
+  font-family: Barlow, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.column-one-fourth {
+  width: 60%;
+}
+
+img {
+  width: 100%;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.shrink-image {
+  width: 26%;
+}
+
+.align-center {
+  text-align: center;
+}
+
+p {
+  font-size: 10px;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.text-align-center {
+  text-align: center;
+}
