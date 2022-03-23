@@ -1,0 +1,58 @@
+* {
+  font-family: "DM Sans", sans-serif;
+}
+
+.container {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  display: flex;
+}
+
+img {
+  width: 160px;
+  object-fit: cover;
+  height: 240px;
+}
+
+p {
+  font-size: 12px;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.column-one-fifth {
+  flex-basis: 20%;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.column {
+  width: 100%;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.color-light-grey {
+  color: lightgrey;
+}
+
+mark {
+  background-color: #f8edeb;
+  border-radius: 4px;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
