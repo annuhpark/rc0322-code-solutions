@@ -24,10 +24,23 @@ function chunk(array, size) {
       // console.log(parentArray);
       subArray = [];
       subArray.push(array[i]);
+      // console.log(subArray);
     } else if (i > size) {
-      for (let i = size + 1; i < array.length; i++) {
-        subArray.push(array[i]);
-        // console.log(subArray);
+      if (i <= size * 2 && array.length % size === 0) {
+        for (let i = size + 1; i < array.length; i++) {
+          subArray.push(array[i]);
+          // console.log(subArray);
+        }
+      } else {
+        for (let i = size + 1; i < array.length; i++) {
+          if (i >= array.length - 1) {
+            parentArray.push(subArray);
+            subArray = [];
+            subArray.push(array[i]);
+          } else {
+            subArray.push(array[i]);
+          }
+        }
       }
       parentArray.push(subArray);
       return parentArray;
