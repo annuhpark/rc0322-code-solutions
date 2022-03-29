@@ -6,5 +6,26 @@
 // 4. Add the property and values onto the first object otherwise.
 
 function defaults(target, source) {
-
+  if (Object.keys(target).length === 0) {
+    target = source;
+  }
+  for (let x in target) {
+    // console.log(x);
+    for (const y in source) {
+      // console.log(y);
+      if (x === y) {
+        // console.log(x);
+        delete source[y];
+        // console.log(source);
+      } else if (x !== y && target[y] === undefined) {
+        // console.log(y);
+        x = y;
+        // console.log(x);
+        const missingValue = source[y];
+        // console.log(you);
+        target[x] = missingValue;
+        // console.log(target);
+      }
+    }
+  }
 }
