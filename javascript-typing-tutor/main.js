@@ -8,11 +8,7 @@ function typingGame(event) {
       $letter[counter + 1].className = 'underline';
       counter++;
     }
-  } else if (event.code === 'Space' && counter === 1) {
-    $letter[counter + 1].className = 'underline';
-    $letter[counter].className = '';
-    counter++;
-  } else if (event.code === 'Space' && counter === 6) {
+  } else if (event.code === 'Space' && $letter[counter].textContent.charCodeAt(0) === 160) {
     $letter[counter + 1].className = 'underline';
     $letter[counter].className = '';
     counter++;
