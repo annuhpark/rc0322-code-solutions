@@ -1,0 +1,32 @@
+* {
+  font-family: serif;
+  font-weight: bold;
+  font-size: 80px;
+  letter-spacing: 6px;
+}
+
+.container {
+  max-width: max-content;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.underline {
+  text-decoration: underline;
+  color: black;
+}
+
+.green-letter {
+  color: lightgreen;
+}
+
+.underline-red-letter {
+  text-decoration: underline;
+  color: rgb(206 60 60);
+}
