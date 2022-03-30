@@ -1,19 +1,24 @@
-/* var $letter = document.querySelectorAll('span');
-// console.log(event.key);
+var $letter = document.querySelectorAll('span');
+var counter = 0;
 
-function typingGame() {
-  let i = 0;
-  while (i < $letter.length) {
-    // console.log($letter[i].textContent);
-    if (event.key === $letter[i].textContent) {
-      $letter[i].className = 'green-letter';
-      $letter[i + 1].className = 'underline';
-      i++;
-    } else {
-      $letter[i].className = 'underline-red-letter';
+function typingGame(event) {
+  if (event.key === $letter[counter].textContent) {
+    $letter[counter].className = 'green-letter';
+    if (counter < $letter.length - 1) {
+      $letter[counter + 1].className = 'underline';
+      counter++;
     }
+  } else if (event.code === 'Space' && counter === 1) {
+    $letter[counter + 1].className = 'underline';
+    $letter[counter].className = '';
+    counter++;
+  } else if (event.code === 'Space' && counter === 6) {
+    $letter[counter + 1].className = 'underline';
+    $letter[counter].className = '';
+    counter++;
+  } else {
+    $letter[counter].className = 'underline-red-letter';
   }
 }
 
 window.addEventListener('keydown', typingGame);
-*/
