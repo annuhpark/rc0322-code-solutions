@@ -1,7 +1,8 @@
 function ExampleConstructor() {
-  console.log(ExampleConstructor.prototype);
-  console.log(typeof ExampleConstructor.prototype);
 }
+
+console.log(ExampleConstructor.prototype);
+console.log(typeof ExampleConstructor.prototype);
 var newFunction = new ExampleConstructor();
 console.log(newFunction);
 // console.log(newFunction instanceof ExampleConstructor);
