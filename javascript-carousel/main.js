@@ -68,13 +68,3 @@ function matchArrowToCircle() {
     }
   }
 }
-
-// function matchIntervalToCircle() {
-//   for (let i = 0; i < $circles.length; i++) {
-//     if (i === intervalIndex) {
-//       $circles[i].className = 'fas fa-circle';
-//     } else {
-//       $circles[i].className = 'far fa-circle';
-//     }
-//   }
-// }
