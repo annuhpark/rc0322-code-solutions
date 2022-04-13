@@ -1,0 +1,52 @@
+/* Structure */
+
+.container {
+  margin: auto;
+  max-width: 1000px;
+  height: 100vh;
+}
+
+.row {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.column-full {
+  width: 100%;
+}
+
+/* Arrow & Circle */
+
+.fa-angle-left,
+.fa-angle-right {
+  font-size: 40px;
+}
+
+.fa-angle-left,
+.fa-angle-right:hover {
+  cursor: pointer;
+}
+
+.fa-circle {
+  font-size: 18px;
+}
+
+.fa-circle:hover {
+  cursor: pointer;
+}
+
+.padding-between-circles {
+  padding-left: 4px;
+  padding-right: 4px;
+}
