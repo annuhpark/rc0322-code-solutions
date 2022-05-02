@@ -4,46 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>es6-const-let</title>
+  <title>Javascript ES6 - Template Literals</title>
 </head>
 <body>
   <script>
-    var greetings = [
-      'hello!',
-      'konichiwa!',
-      'nihao',
-      'bonjour',
-      'gutten tag',
-      'hola'
-    ];
+    const number = 9200;
+    const street = ' Irvine Center Drive';
+    const address = `${number}${street}`;
 
-    function logAllGreetings(greetingList) {
-      var i = 0;
-      while (i < greetingList.length) {
-        console.log('Current greeting:', greetingList[i]);
-        i++;
-      }
-    }
-    logAllGreetings(greetings);
+    console.log('LearningFuze:', address);
 
-    function getRandomGreeting(greetingList) {
-      var randomIndex = Math.floor(Math.random() * greetingList.length);
-      var greeting = greetingList[randomIndex];
-      if (randomIndex === 1) {
-        greeting = greeting + ' is a japanese greeting.';
-      }
-      return greeting;
-    }
-    console.log('Random greeting:', getRandomGreeting(greetings));
+    const firstName = 'Uzair';
+    const lastName = 'Ashraf';
+    const age = 25;
 
-    function addToGreetings(newGreeting, greetingList) {
-      greetingList.push(newGreeting);
-    }
-    addToGreetings('namaste', greetings);
-    logAllGreetings(greetings);
+    const bio = `My name is ${firstName} ${lastName} and I am ${age} years old.`;
 
-    console.log('This variable is currently undefined due to hoisting, please fix: ', variable);
-    var variable = 'meow';
+    console.log('Bio:', bio);
+
+    const fruit = 'apple';
+    const item = 'pen';
+
+    const applePen = `${fruit} ${item}`;
+
+    console.log('I have a', item);
+    console.log('I have an', fruit);
+    console.log(applePen);
   </script>
 </body>
+
 </html>
