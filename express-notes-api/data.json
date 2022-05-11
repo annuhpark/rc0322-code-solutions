@@ -1,0 +1,17 @@
+{
+  "nextId": 10,
+  "notes": {
+    "2": {
+      "id": 2,
+      "content": "The event loop, this, closures, and prototypal inheritance are special about JavaScript."
+    },
+    "10": {
+      "id": 2,
+      "content": "hello"
+    },
+    "11": {
+      "id": 11,
+      "content": "I like monkeys."
+    }
+  }
+}
