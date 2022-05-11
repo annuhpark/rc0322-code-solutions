@@ -56,7 +56,7 @@ app.post('/api/notes', (req, res) => {
 
 app.delete('/api/notes/:id', (req, res) => {
   const id = req.params.id;
-  if (id < 1 || isNaN(id)) {
+  if (id < 1 || isNaN(id) || !Number.isIntegar(id)) {
     const error = { error: 'Id must be a positive integer' };
     res.status(400).json(error);
   } else if (!notebookNotes[id]) {
@@ -77,7 +77,7 @@ app.delete('/api/notes/:id', (req, res) => {
 
 app.put('/api/notes/:id', (req, res) => {
   const id = req.params.id;
-  if (id < 1 || isNaN(id)) {
+  if (id < 1 || isNaN(id) || !Number.isIntegar(id)) {
     const error = { error: 'Id must be a positive integer' };
     res.status(400).json(error);
   } else if (typeof req.body.content === 'undefined') {
