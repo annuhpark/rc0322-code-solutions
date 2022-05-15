@@ -39,7 +39,7 @@ app.post('/api/grades', (req, res) => {
     course: req.body.course,
     score: req.body.score
   };
-  // console.log(newGrade);
+  console.log(newGrade);
 });
 
 app.listen(3000, () => {
