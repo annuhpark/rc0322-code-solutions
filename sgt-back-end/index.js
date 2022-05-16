@@ -19,9 +19,9 @@ app.get('/api/grades', (req, res) => {
            "createdAt"
       from "public"."grades"
   `;
-  // console.log(sql);
   db.query(sql)
     .then(result => {
+      console.log(result);
       const grade = result.rows;
       res.status(200).json(grade);
     })
