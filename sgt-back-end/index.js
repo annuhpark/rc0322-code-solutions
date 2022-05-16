@@ -39,7 +39,15 @@ app.post('/api/grades', (req, res) => {
     course: req.body.course,
     score: req.body.score
   };
-  console.log(newGrade);
+  if (!newGrade.name || !newGrade.course) {
+    res.status(400).json({
+      error: 'Invalid entry. Please check name and course'
+    });
+  } else if (!Number.isInteger(newGrade.score) || newGrade.score < 0 || newGrade.score > 100) {
+    res.status(400).json({
+      error: 'Invalid entry. Score must be an integer between 0 and 100'
+    });
+  }
 });
 
 app.listen(3000, () => {
