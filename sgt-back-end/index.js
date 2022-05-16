@@ -19,11 +19,11 @@ app.get('/api/grades', (req, res) => {
            "createdAt"
       from "public"."grades"
   `;
+  // console.log(sql);
   db.query(sql)
     .then(result => {
       const grade = result.rows;
       res.status(200).json(grade);
-      // console.log(result.rows);
     })
     .catch(err => {
       console.error(err);
@@ -39,13 +39,33 @@ app.post('/api/grades', (req, res) => {
     course: req.body.course,
     score: req.body.score
   };
+  const sql = `
+    insert into grades
+      ("name", "course", "score")
+      values
+        ($1, $2, $3)
+    returning *;
+  `;
+  const params = [newGrade.name, newGrade.course, newGrade.score];
+  db.query(sql, params)
+    .then(result => {
+      const grade = result.rows[0];
+      res.json(grade);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occurred.'
+      });
+    });
   if (!newGrade.name || !newGrade.course) {
     res.status(400).json({
-      error: 'Invalid entry. Please check name and course'
+      error: 'Name & Course are required fields.'
     });
-  } else if (!Number.isInteger(newGrade.score) || newGrade.score < 0 || newGrade.score > 100) {
+  }
+  if (!Number.isInteger(newGrade.score) || newGrade.score < 0 || newGrade.score > 100) {
     res.status(400).json({
-      error: 'Invalid entry. Score must be an integer between 0 and 100'
+      error: 'Your score has a problem.'
     });
   }
 });
