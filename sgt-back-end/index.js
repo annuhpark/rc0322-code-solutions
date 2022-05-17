@@ -1,83 +1,5 @@
-// const pg = require('pg');
-// const express = require('express');
-// const app = express();
-// const db = new pg.Pool({
-//   connectionString: 'postgres://dev:dev@localhost/studentGradeTable',
-//   ssl: {
-//     rejectUnauthorized: false
-//   }
-// });
-
-// app.use(express.json());
-
-// app.get('/api/grades', (req, res) => {
-//   const sql = `
-//     select "gradeId",
-//            "name",
-//            "course",
-//            "score",
-//            "createdAt"
-//       from "public"."grades"
-//   `;
-//   db.query(sql)
-//     .then(result => {
-//       // console.log(result);
-//       const grade = result.rows;
-//       res.status(200).json(grade);
-//     })
-//     .catch(err => {
-//       console.error(err);
-//       res.status(500).json({
-//         error: 'An unexpected error occurred.'
-//       });
-//     });
-// });
-
-// app.post('/api/grades', (req, res) => {
-//   const newGrade = {
-//     name: req.body.name,
-//     course: req.body.course,
-//     score: req.body.score
-//   };
-//   const sql = `
-//     insert into grades
-//       ("name", "course", "score")
-//       values
-//         ($1, $2, $3)
-//     returning *;
-//   `;
-//   const params = [newGrade.name, newGrade.course, newGrade.score];
-//   db.query(sql, params)
-//     .then(result => {
-//       const grade = result.rows[0];
-//       res.json(grade);
-//     })
-//     .catch(err => {
-//       console.error(err);
-//       res.status(500).json({
-//         error: 'An unexpected error occurred.'
-//       });
-//     });
-//   if (!newGrade.name || !newGrade.course) {
-//     res.status(400).json({
-//       error: 'Name & Course are required fields.'
-//     });
-//   }
-//   if (!Number.isInteger(newGrade.score) || newGrade.score < 0 || newGrade.score > 100) {
-//     res.status(400).json({
-//       error: 'Your score has a problem.'
-//     });
-//   }
-// });
-
-// app.listen(3000, () => {
-//   // eslint-disable-next-line no-console
-//   console.log('Express server listening on port 3000');
-// });
-
-const express = require('express');
 const pg = require('pg');
-
+const express = require('express');
 const app = express();
 const db = new pg.Pool({
   connectionString: 'postgres://dev:dev@localhost/studentGradeTable',
@@ -95,10 +17,11 @@ app.get('/api/grades', (req, res) => {
            "course",
            "score",
            "createdAt"
-      from "grades"
+      from "public"."grades"
   `;
   db.query(sql)
     .then(result => {
+      // console.log(result);
       const grade = result.rows;
       res.status(200).json(grade);
     })
@@ -118,26 +41,28 @@ app.post('/api/grades', (req, res) => {
   };
   if (!newGrade.name || !newGrade.course) {
     res.status(400).json({
-      error: 'Invalid entry. Please check name and course'
+      error: 'Name & Course are required fields.'
     });
     return;
   }
   if (!Number.isInteger(newGrade.score) || newGrade.score < 0 || newGrade.score > 100) {
     res.status(400).json({
-      error: 'Invalid entry. Score must be an integer between 0 and 100'
+      error: 'Your score has a problem.'
     });
     return;
   }
   const sql = `
-    insert into "grades" ("name", "course", "score")
-    values ($1, $2, $3)
+    insert into grades
+      ("name", "course", "score")
+      values
+        ($1, $2, $3)
     returning *;
   `;
   const params = [newGrade.name, newGrade.course, newGrade.score];
   db.query(sql, params)
     .then(result => {
       const grade = result.rows[0];
-      res.status(201).json(grade);
+      res.json(grade);
     })
     .catch(err => {
       console.error(err);
@@ -156,19 +81,19 @@ app.put('/api/grades/:gradeId', (req, res) => {
   const gradeId = parseInt(req.params.gradeId, 10);
   if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({
-      error: '"gradeId" must be a positive integer'
+      error: 'gradeId has to be a positive integer.'
     });
     return;
   }
   if (!newGrade.name || !newGrade.course) {
     res.status(400).json({
-      error: 'Invalid entry. Please check name and course'
+      error: 'Name & Course are required fields.'
     });
     return;
   }
   if (!Number.isInteger(newGrade.score) || newGrade.score < 0 || newGrade.score > 100) {
     res.status(400).json({
-      error: 'Invalid entry. Score must be an integer between 0 and 100'
+      error: 'Score must be an integer between 0 and 100'
     });
     return;
   }
@@ -186,7 +111,7 @@ app.put('/api/grades/:gradeId', (req, res) => {
       const grade = result.rows[0];
       if (!grade) {
         res.status(404).json({
-          error: `Cannot find grade with "gradeId" ${gradeId}`
+          error: `Cannot find grade with gradeId ${gradeId}.`
         });
       } else {
         res.status(200).json(grade);
@@ -204,7 +129,7 @@ app.delete('/api/grades/:gradeId', (req, res) => {
   const gradeId = parseInt(req.params.gradeId, 10);
   if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({
-      error: '"gradeId" must be a positive integer'
+      error: 'gradeId must be a positive integer.'
     });
     return;
   }
@@ -219,7 +144,7 @@ app.delete('/api/grades/:gradeId', (req, res) => {
       const grade = result.rows[0];
       if (!grade) {
         res.status(404).json({
-          error: `Cannot find grade with "gradeId" ${gradeId}`
+          error: `Cannot find grade with gradeId ${gradeId}.`
         });
       } else {
         res.status(200).json(grade);
