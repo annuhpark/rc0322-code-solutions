@@ -42,5 +42,5 @@ const combiningProperty = (previousValue, currentValue) => {
   return Object.assign(previousValue, currentValue);
 };
 
-const composite = traits.reduce(combiningProperty);
+const composite = traits.reduce(combiningProperty, {});
 console.log(composite);
