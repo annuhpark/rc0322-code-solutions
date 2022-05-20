@@ -11,12 +11,10 @@ const pokedex = [
 
 function NumberList(props) {
   const pokemon = props.pokedex;
-  // console.log(pokemon);
   const listPokemon = pokemon.map(poke =>
     <li key={poke.name.toString()}>
       {poke.name}
     </li>
-    // console.log(poke.name)
   );
   return (
     <ul>{listPokemon}</ul>
