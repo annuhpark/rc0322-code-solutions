@@ -1,0 +1,33 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.justify-content {
+  justify-content: center;
+}
+
+.circle {
+  border-radius: 80%;
+  width: 50px;
+  height: 50px;
+  padding: 60px;
+  background: #fff;
+  border: 3px solid #000;
+  color: #000;
+  text-align: center;
+  font: 30px Arial, sans-serif;
+  cursor: pointer;
+}
+
+.top-padding {
+  padding-top: 24px;
+}
+
+.fas {
+  cursor: pointer;
+}
