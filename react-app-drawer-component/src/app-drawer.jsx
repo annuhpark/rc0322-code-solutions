@@ -32,7 +32,7 @@ export default class Drawer extends React.Component {
       pageClass = 'page-container full-vp';
     }
     return (
-      <div className='background-pepe full-vp'>
+      <div className='full-vp'>
         <div onClick={this.hideDrawer} className={pageClass}>
           <i onClick={this.showDrawer} className={burgerClass}></i>
           <div className={menuClass}>
@@ -40,13 +40,13 @@ export default class Drawer extends React.Component {
               <h1>Menu</h1>
             </div>
             <div className="align-items-center link">
-              <a className="target-link">About</a>
+              <a className="target-link">About Me</a>
             </div>
             <div className="align-items-center link">
-              <a className="target-link">Get Started</a>
+              <a className="target-link">Eat</a>
             </div>
             <div className="align-items-center link">
-              <a className="target-link">Sign In</a>
+              <a className="target-link">Sleep</a>
             </div>
           </div>
         </div>
