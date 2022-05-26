@@ -3,14 +3,11 @@ const app = express();
 let nextId = 1;
 const grades = [];
 
-app.listen(3000, () => {
-  // eslint-disable-next-line no-console
-  console.log('Listening on port 3000!');
-});
+app.use(express.json());
+
 app.get('/api/grades', (req, res) => {
   res.json(grades);
 });
-app.use(express.json());
 
 app.post('/api/grades', (req, res) => {
   const newGrade = {
@@ -22,4 +19,9 @@ app.post('/api/grades', (req, res) => {
   grades.push(newGrade);
   nextId++;
   res.status(201).send(newGrade);
+});
+
+app.listen(3000, () => {
+  // eslint-disable-next-line no-console
+  console.log('Listening on port 3000!');
 });
