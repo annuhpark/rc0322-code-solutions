@@ -48,7 +48,9 @@ app.post('/api/auth/sign-up', (req, res, next) => {
                   "username",
                   "createdAt";
     `, userDetails)
-        .then(result => res.status(201).json(result.rows[0]))
+        .then(result => {
+          res.status(201).json(result.rows[0]);
+        })
         .catch(err => next(err));
     })
     .catch(err => next(err));
